@@ -1,0 +1,25 @@
+// Resetting everything.
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is (1rem = 10px).
+    font-size: 62.5%; // 1rem = 10px
+}
+
+// Everything should be border box. Google it.
+body {
+    box-sizing: border-box;
+    background-color: $background-color-outside;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+::selection {
+    background-color:  $color-primary;
+    color: $color-white;
+}

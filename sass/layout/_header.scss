@@ -1,0 +1,38 @@
+.header {
+    padding: 0.5rem 1rem;
+    max-height: 15rem;
+    border-bottom: 2px solid $color-tertiary;
+
+    display: flex;
+
+    &__logo-box {
+        display: inline-block;
+        width: 5%;
+
+        &__logo {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__title {
+        display: inline-block;
+        text-align: center;
+        padding: 0 1rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        &__text {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        &__desc {
+            font-style: italic;
+            font-size: 1.4rem;
+        }
+    }
+}

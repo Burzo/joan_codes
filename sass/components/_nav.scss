@@ -1,0 +1,48 @@
+.navigation {
+    flex: 1;
+
+    &__list {
+        height: 100%;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+    }
+
+    &__item {
+        text-decoration: none;
+        list-style: none;
+
+        border-left: 1px solid $default-font-color;
+        &:last-child {
+            border-right: 1px solid $default-font-color;
+        }
+
+        &--link {
+            text-decoration: none;
+            color: $default-font-color;
+            padding: 0.3rem 0.2rem;
+
+            display: inline-block;
+            width: 10rem;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:visited {
+                text-decoration: none;
+                color: $default-font-color;
+            }
+
+            &:active,
+            &:hover {
+                background-color: $color-black;
+                span {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}

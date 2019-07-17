@@ -1,0 +1,19 @@
+.body {
+    max-width: 112rem;
+    margin: 10rem auto;
+    font-size: $default-font-size;
+    color: $default-font-color;
+    background-color: $background-color-inside;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 110%;
+        height: 100%;
+        z-index: -1000;
+        background: radial-gradient(circle, $background-color-inside 90%, $background-color-outside 95%);
+
+        @include moveToCenter;
+    }
+}

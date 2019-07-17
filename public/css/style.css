@@ -1,0 +1,94 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  background-color: #eee;
+  font-family: 'Roboto', 'Open Sans', sans-serif; }
+
+::selection {
+  background-color: #fff;
+  color: #fff; }
+
+.body {
+  max-width: 112rem;
+  margin: 10rem auto;
+  font-size: 1.6rem;
+  color: #1b1b1b;
+  background-color: #fff;
+  position: relative; }
+  .body::before {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    z-index: -1000;
+    background: radial-gradient(circle, #fff 90%, #eee 95%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.navigation {
+  flex: 1; }
+  .navigation__list {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch; }
+  .navigation__item {
+    text-decoration: none;
+    list-style: none;
+    border-left: 1px solid #1b1b1b; }
+    .navigation__item:last-child {
+      border-right: 1px solid #1b1b1b; }
+    .navigation__item--link {
+      text-decoration: none;
+      color: #1b1b1b;
+      padding: 0.3rem 0.2rem;
+      display: inline-block;
+      width: 10rem;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .navigation__item--link:visited {
+        text-decoration: none;
+        color: #1b1b1b; }
+      .navigation__item--link:active, .navigation__item--link:hover {
+        background-color: #000; }
+        .navigation__item--link:active span, .navigation__item--link:hover span {
+          color: #fff; }
+
+.header {
+  padding: 0.5rem 1rem;
+  max-height: 15rem;
+  border-bottom: 2px solid #1b1b1b;
+  display: flex; }
+  .header__logo-box {
+    display: inline-block;
+    width: 5%; }
+    .header__logo-box__logo {
+      width: 100%;
+      height: auto; }
+  .header__title {
+    display: inline-block;
+    text-align: center;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .header__title__text {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0; }
+    .header__title__desc {
+      font-style: italic;
+      font-size: 1.4rem; }
