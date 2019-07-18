@@ -1,0 +1,52 @@
+.tooltip {
+    display: inline-block;
+    position: relative;
+    translate: 3s all;
+
+    z-index: 20;
+
+    &:hover, &:active {
+        transform: scale(1.1);
+    }
+
+    &:hover &--text {
+        visibility: visible;
+
+        z-index: 20;
+    }
+
+    &--icon {
+        font-size: 2rem;
+        color: $default-font-color;
+    }
+
+    &--text {
+        visibility: hidden;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        position: absolute;
+        top: -50%;
+        left: 100%;
+        color: $color-primary;
+        background-color: $color-tertiary;
+        margin-left: 1.3rem;
+        outline: none;
+        z-index: 20;
+
+        box-shadow: 0.2rem 0.3rem $color-secondary;
+
+        &::after {
+            content: "";
+            outline: none;
+            position: absolute;
+            top: 10%;
+            right: 99%;
+            border-width: 1rem;
+            border-style: solid;
+            border-color: transparent $color-tertiary transparent transparent;
+            z-index: 20;
+        }
+    }
+}

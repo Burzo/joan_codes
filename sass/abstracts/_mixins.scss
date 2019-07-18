@@ -11,3 +11,36 @@
     left: 50%;
     transform: translate(-50%, -50%) rotate(90deg);
 }
+
+@mixin clearfix {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+
+//---------------------------------
+@mixin fadeIn($length) {
+    animation: fadeIn $length linear both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1)
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fadein {
+    animation: fadeIn 0.7s linear both;
+}
+//------------------------------------

@@ -12,7 +12,6 @@ html {
     font-size: 62.5%; // 1rem = 10px
 }
 
-// Everything should be border box. Google it.
 body {
     box-sizing: border-box;
     background-color: $background-color-outside;
@@ -20,6 +19,6 @@ body {
 }
 
 ::selection {
-    background-color:  $color-primary;
-    color: $color-white;
+    background-color:  $color-tertiary;
+    color: $color-primary;
 }
