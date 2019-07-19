@@ -1,3 +1,74 @@
 .addcodeform {
-    
+    padding: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__element {
+        width: 25%;
+        
+        &__label {
+            display: block;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px;
+            text-align: center;
+        }
+    }
+
+    &__inputcode {
+        margin-top: 1rem;
+
+        &--label {
+            height: 100%;
+            font: inherit;
+            font-size: 1.7rem;
+        }
+    }
+
+    &__codetype {
+        margin-top: 1rem;
+
+        &--radio {
+            display: block;
+            font-size: 1.7rem;
+        }
+    }
+
+    &__select {
+
+        option {
+            display: block;
+        }
+    }
+
+    &__currency {
+        margin-top: 1rem;
+        font-size: 2.2rem;
+        text-align: center;
+
+        &__container {
+            border: 3px solid $color-tertiary;
+            box-shadow: 0.15rem 0.3rem rgba($color-tertiary, 0.15);
+
+            ::selection {
+                background-color: transparent;
+            }
+        }
+
+        &--label {
+            background-color: $color-primary;
+
+            &--selected {
+                background-color: $color-tertiary;
+                color: $color-primary;
+            }
+        }
+
+        &--radio {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
 } 

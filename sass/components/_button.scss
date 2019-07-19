@@ -11,6 +11,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     overflow: hidden;
+    transition: color .2s;
     
     
     &:visited {
@@ -37,7 +38,7 @@
         z-index: -1;
         background-color: $color-tertiary;
         transform: translateY(88%);
-        transition: transform 0.2s ease-in-out;
+        transition: transform 0.25s ease-in-out;
     }
 
     &::before {

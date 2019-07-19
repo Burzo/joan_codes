@@ -156,7 +156,8 @@ body {
   color: #1b1b1b;
   -webkit-appearance: none;
   -moz-appearance: none;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: color .2s; }
   .btn:visited {
     text-decoration: none; }
   .btn:focus, .btn:hover {
@@ -175,7 +176,7 @@ body {
     z-index: -1;
     background-color: #1b1b1b;
     transform: translateY(88%);
-    transition: transform 0.2s ease-in-out; }
+    transition: transform 0.25s ease-in-out; }
   .btn::before {
     content: "";
     width: 100%;
@@ -187,6 +188,50 @@ body {
     background-color: #1b1b1b;
     transform: translateY(-88%);
     transition: transform 0.25s ease-in-out; }
+
+.addcodeform {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap; }
+  .addcodeform__element {
+    width: 25%; }
+    .addcodeform__element__label {
+      display: block;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px;
+      text-align: center; }
+  .addcodeform__inputcode {
+    margin-top: 1rem; }
+    .addcodeform__inputcode--label {
+      height: 100%;
+      font: inherit;
+      font-size: 1.7rem; }
+  .addcodeform__codetype {
+    margin-top: 1rem; }
+    .addcodeform__codetype--radio {
+      display: block;
+      font-size: 1.7rem; }
+  .addcodeform__select option {
+    display: block; }
+  .addcodeform__currency {
+    margin-top: 1rem;
+    font-size: 2.2rem;
+    text-align: center; }
+    .addcodeform__currency__container {
+      border: 3px solid #1b1b1b;
+      box-shadow: 0.15rem 0.3rem rgba(27, 27, 27, 0.15); }
+      .addcodeform__currency__container ::selection {
+        background-color: transparent; }
+    .addcodeform__currency--label {
+      background-color: #fff; }
+      .addcodeform__currency--label--selected {
+        background-color: #1b1b1b;
+        color: #fff; }
+    .addcodeform__currency--radio {
+      visibility: hidden;
+      opacity: 0; }
 
 .header {
   padding: 0.5rem 1rem;
