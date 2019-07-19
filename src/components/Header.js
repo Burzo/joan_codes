@@ -1,9 +1,6 @@
 import React from "react"
 
 class Header extends React.Component {
-    constructor() {
-        super()
-    }
 
     render() {
         return(
@@ -18,13 +15,13 @@ class Header extends React.Component {
                 <nav className="navigation">
                     <ul className="navigation__list">
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="#"><span>Link</span></a>
+                            <a className="navigation__item--link" href="/"><span>Link</span></a>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="#"><span>Link</span></a>
+                            <a className="navigation__item--link" href="/"><span>Link</span></a>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="#"><span>Link</span></a>
+                            <a className="navigation__item--link" href="/"><span>Link</span></a>
                         </li>
                     </ul>
                 </nav>
