@@ -1,6 +1,7 @@
 import React from "react"
 
 import CodeGenerator from "./CodeGenerator"
+import AddCodeForm from "./AddCodeForm"
 
 class Main extends React.Component {
 
@@ -8,7 +9,7 @@ class Main extends React.Component {
         return(
             <main>
                 <CodeGenerator></CodeGenerator>
-
+                <AddCodeForm></AddCodeForm>
             </main>
         )
     }

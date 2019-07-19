@@ -1,17 +1,14 @@
 .tooltip {
     display: inline-block;
     position: relative;
-    translate: 3s all;
 
     z-index: 20;
-
     &:hover, &:active {
         transform: scale(1.1);
     }
 
     &:hover &--text {
         visibility: visible;
-
         z-index: 20;
     }
 
@@ -26,6 +23,7 @@
         font-size: 1.1rem;
         padding: 1rem;
         border-radius: 0.5rem;
+        min-width: 11rem;
         position: absolute;
         top: -50%;
         left: 100%;
@@ -41,7 +39,7 @@
             content: "";
             outline: none;
             position: absolute;
-            top: 10%;
+            top: 7%;
             right: 99%;
             border-width: 1rem;
             border-style: solid;
