@@ -3,11 +3,13 @@
     padding: 2rem;
     position: relative;
 
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 
     transition: all 2s;
+
+
     &__input {
         display: inline-block;
         font-size: 2.8rem;

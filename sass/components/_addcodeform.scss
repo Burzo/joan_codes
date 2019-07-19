@@ -1,19 +1,32 @@
 .addcodeform {
     padding: 1rem;
-
+    font-size: 1.7rem;
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
 
     &__element {
-        width: 25%;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
+        &__title {
+            padding: 1rem;
+            font-weight: 900;
+        }
+
         &__label {
             display: block;
+            cursor: default;
             padding: 0.5rem;
             font-size: 1.5rem;
             font-weight: 700;
-            text-shadow: 2px;
             text-align: center;
+        }
+
+        &:not(:last-child) {
+            border-right: 1px solid $color-tertiary;
         }
     }
 
@@ -21,25 +34,94 @@
         margin-top: 1rem;
 
         &--label {
-            height: 100%;
+            width: 80%;
             font: inherit;
-            font-size: 1.7rem;
+            background-color: $color-primary; 
+            font-size: 2.8rem;
+            text-align: center;
+            border: 1px solid $color-tertiary;
+            outline: none;
+
+            &:active, &:hover, &focus {
+                border: 2px solid $color-tertiary;
+                outline: none;
+                background-color: $color-primary;
+            }
         }
     }
 
     &__codetype {
         margin-top: 1rem;
+        font-size: 2rem;
 
         &--radio {
             display: block;
-            font-size: 1.7rem;
+            padding: 0.6rem;
+
+            &:hover {
+                background-color: $color-tertiary;
+                color: $color-primary;
+            }
+
+            &--selected {
+                display: block;
+                color: $color-primary;
+                background-color: $color-tertiary;
+                padding: 0.6rem;
+            }
         }
     }
 
-    &__select {
+    &__plantype {
+        margin-top: 1rem;
+        font-size: 2rem;
 
-        option {
+        &--radio {
             display: block;
+            padding: 0.6rem;
+
+            &:hover {
+                background-color: $color-tertiary;
+                color: $color-primary;
+            }
+
+            &--selected {
+                display: block;
+                color: $color-primary;
+                background-color: $color-tertiary;
+                padding: 0.6rem;
+            }
+        }
+    }
+
+    &__value {
+        font-size: 2rem;
+
+        &__container {
+            font-size: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        &--label {
+            width: 25%;
+            padding: 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-tertiary;
+                color: $color-primary;
+            }
+
+            &--selected {
+                background-color: $color-tertiary;
+                color: $color-primary;
+                padding: 0.5rem;
+                font-weight: 900;
+                width: 25%;
+                cursor: pointer;
+            }
         }
     }
 
@@ -51,24 +133,30 @@
         &__container {
             border: 3px solid $color-tertiary;
             box-shadow: 0.15rem 0.3rem rgba($color-tertiary, 0.15);
-
-            ::selection {
-                background-color: transparent;
-            }
+            text-align: center;
+            font-size: 3.5rem;
+            height: auto;
+            display: inline-block;
+            overflow: hidden;
         }
 
         &--label {
             background-color: $color-primary;
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
 
-            &--selected {
+            &:hover {
                 background-color: $color-tertiary;
                 color: $color-primary;
             }
-        }
-
-        &--radio {
-            visibility: hidden;
-            opacity: 0;
+            
+            &--selected {
+                background-color: $color-tertiary;
+                color: $color-primary;
+                padding: 1.5rem;
+                font-weight: 900;
+            }
         }
     }
 } 

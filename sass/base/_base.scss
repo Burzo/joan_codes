@@ -22,3 +22,9 @@ body {
     background-color:  $color-tertiary;
     color: $color-primary;
 }
+
+input[type="radio"] {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+}

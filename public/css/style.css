@@ -12,6 +12,9 @@
 .fadein {
   animation: fadeIn 0.7s linear both; }
 
+.flex-0 {
+  flex: 0; }
+
 *,
 *::after,
 *::before {
@@ -31,9 +34,14 @@ body {
   background-color: #1b1b1b;
   color: #fff; }
 
+input[type="radio"] {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute; }
+
 .body-container {
   max-width: 112rem;
-  margin: 10rem auto;
+  margin: 6rem auto;
   font-size: 1.6rem;
   color: #1b1b1b;
   position: relative; }
@@ -84,7 +92,7 @@ body {
   height: 100%;
   padding: 2rem;
   position: relative;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   transition: all 2s; }
@@ -191,47 +199,114 @@ body {
 
 .addcodeform {
   padding: 1rem;
+  font-size: 1.7rem;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-items: stretch; }
   .addcodeform__element {
-    width: 25%; }
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .addcodeform__element__title {
+      padding: 1rem;
+      font-weight: 900; }
     .addcodeform__element__label {
       display: block;
+      cursor: default;
       padding: 0.5rem;
       font-size: 1.5rem;
       font-weight: 700;
-      text-shadow: 2px;
       text-align: center; }
+    .addcodeform__element:not(:last-child) {
+      border-right: 1px solid #1b1b1b; }
   .addcodeform__inputcode {
     margin-top: 1rem; }
     .addcodeform__inputcode--label {
-      height: 100%;
+      width: 80%;
       font: inherit;
-      font-size: 1.7rem; }
+      background-color: #fff;
+      font-size: 2.8rem;
+      text-align: center;
+      border: 1px solid #1b1b1b;
+      outline: none; }
+      .addcodeform__inputcode--label:active, .addcodeform__inputcode--label:hover, .addcodeform__inputcode--labelfocus {
+        border: 2px solid #1b1b1b;
+        outline: none;
+        background-color: #fff; }
   .addcodeform__codetype {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    font-size: 2rem; }
     .addcodeform__codetype--radio {
       display: block;
-      font-size: 1.7rem; }
-  .addcodeform__select option {
-    display: block; }
+      padding: 0.6rem; }
+      .addcodeform__codetype--radio:hover {
+        background-color: #1b1b1b;
+        color: #fff; }
+      .addcodeform__codetype--radio--selected {
+        display: block;
+        color: #fff;
+        background-color: #1b1b1b;
+        padding: 0.6rem; }
+  .addcodeform__plantype {
+    margin-top: 1rem;
+    font-size: 2rem; }
+    .addcodeform__plantype--radio {
+      display: block;
+      padding: 0.6rem; }
+      .addcodeform__plantype--radio:hover {
+        background-color: #1b1b1b;
+        color: #fff; }
+      .addcodeform__plantype--radio--selected {
+        display: block;
+        color: #fff;
+        background-color: #1b1b1b;
+        padding: 0.6rem; }
+  .addcodeform__value {
+    font-size: 2rem; }
+    .addcodeform__value__container {
+      font-size: 2rem;
+      display: flex;
+      flex-wrap: wrap; }
+    .addcodeform__value--label {
+      width: 25%;
+      padding: 0.5rem;
+      cursor: pointer; }
+      .addcodeform__value--label:hover {
+        background-color: #1b1b1b;
+        color: #fff; }
+      .addcodeform__value--label--selected {
+        background-color: #1b1b1b;
+        color: #fff;
+        padding: 0.5rem;
+        font-weight: 900;
+        width: 25%;
+        cursor: pointer; }
   .addcodeform__currency {
     margin-top: 1rem;
     font-size: 2.2rem;
     text-align: center; }
     .addcodeform__currency__container {
       border: 3px solid #1b1b1b;
-      box-shadow: 0.15rem 0.3rem rgba(27, 27, 27, 0.15); }
-      .addcodeform__currency__container ::selection {
-        background-color: transparent; }
+      box-shadow: 0.15rem 0.3rem rgba(27, 27, 27, 0.15);
+      text-align: center;
+      font-size: 3.5rem;
+      height: auto;
+      display: inline-block;
+      overflow: hidden; }
     .addcodeform__currency--label {
-      background-color: #fff; }
-      .addcodeform__currency--label--selected {
+      background-color: #fff;
+      padding: 1.5rem;
+      font-weight: 600;
+      cursor: pointer; }
+      .addcodeform__currency--label:hover {
         background-color: #1b1b1b;
         color: #fff; }
-    .addcodeform__currency--radio {
-      visibility: hidden;
-      opacity: 0; }
+      .addcodeform__currency--label--selected {
+        background-color: #1b1b1b;
+        color: #fff;
+        padding: 1.5rem;
+        font-weight: 900; }
 
 .header {
   padding: 0.5rem 1rem;
@@ -267,6 +342,7 @@ body {
 
 .section-codegenerator {
   height: 8rem;
+  margin: 3rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center; }
