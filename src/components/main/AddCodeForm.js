@@ -1,5 +1,6 @@
 import React from "react"
 import Tooltip from "../helpers/Tooltip"
+import AddCodeFormCalculator from "./AddCodeFormCalculator"
 
 class AddCodeForm extends React.Component {
     constructor() {
@@ -12,19 +13,21 @@ class AddCodeForm extends React.Component {
             isEURorUSD: "eur",
             numOfMonths: "",
             stanorprem: "",
-            codeValue: 0
-        }
-    }
-
-    componentDidUpdate() {
-        if (this.state.isEURorUSD === "eur") {
-            let amount = parseInt(this.state.numOfMonths)
-            
+            numberOfDevices: "",
         }
     }
 
     inputChanged = (e) => {
-        this.setState({newcodeInput: e.target.value})
+        switch (e.target.name) {
+            case "newCode":
+                this.setState({newcodeInput: e.target.value})       
+                break;
+            case "numberOfDevices":
+                this.setState({numberOfDevices: e.target.value})
+                break;
+            default:
+                break;
+        }
     } 
 
     selectChanged = (e) => {
@@ -51,7 +54,6 @@ class AddCodeForm extends React.Component {
 	}
 
     render() {
-
         // Helper function for creating a large select list - so the HTML isn't too long.
         let createSelectListMonths = (amount) => {
             let list = []
@@ -74,6 +76,12 @@ class AddCodeForm extends React.Component {
                             Enter code here:
                             <div className="addcodeform__inputcode">
                                 <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="newCode" value={this.state.newcodeInput}/>
+                            </div>
+                        </label>
+                        <label className="addcodeform__element__label" htmlFor="numberOfDevices">
+                            Number of devices:
+                            <div className="addcodeform__inputcode">
+                                <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="numberOfDevices" value={this.state.numberOfDevices} type="number" />
                             </div>
                         </label>
                         {/* <Tooltip>You can enter your own code here if you wish. Hopefully, it doesn't exists yet. Or just create a random one.</Tooltip> */}
@@ -136,6 +144,7 @@ class AddCodeForm extends React.Component {
                             </div>
 						</div>
                     </div>
+                    <AddCodeFormCalculator data={this.state}/>
                 </form>
                                             {/* <label>
                                 <span>Months:</span>
