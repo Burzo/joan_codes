@@ -15,6 +15,9 @@
 .flex-0 {
   flex: 0; }
 
+.flex-1 {
+  flex: 1; }
+
 *,
 *::after,
 *::before {
@@ -31,13 +34,18 @@ body {
   font-family: 'Roboto', 'Open Sans', sans-serif; }
 
 ::selection {
-  background-color: #1b1b1b;
+  background-color: #bdbdbd;
   color: #fff; }
 
 input[type="radio"] {
   visibility: hidden;
   opacity: 0;
   position: absolute; }
+
+a {
+  background-color: inherit;
+  color: inherit;
+  text-decoration: none; }
 
 .body-container {
   max-width: 112rem;
@@ -81,12 +89,14 @@ input[type="radio"] {
       justify-content: center;
       align-items: center; }
       .navigation__item--link:visited {
-        text-decoration: none;
-        color: #1b1b1b; }
+        text-decoration: none; }
       .navigation__item--link:active, .navigation__item--link:hover {
         background-color: #000; }
         .navigation__item--link:active span, .navigation__item--link:hover span {
           color: #fff; }
+      .navigation__item--link--selected {
+        background-color: #1b1b1b;
+        color: #fff; }
 
 .generator {
   height: 100%;
@@ -165,7 +175,8 @@ input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   overflow: hidden;
-  transition: color .2s; }
+  transition: color .2s;
+  min-width: 12rem; }
   .btn:visited {
     text-decoration: none; }
   .btn:focus, .btn:hover {
@@ -184,7 +195,7 @@ input[type="radio"] {
     z-index: -1;
     background-color: #1b1b1b;
     transform: translateY(88%);
-    transition: transform 0.25s ease-in-out; }
+    transition: transform 0.3s; }
   .btn::before {
     content: "";
     width: 100%;
@@ -195,7 +206,7 @@ input[type="radio"] {
     z-index: -1;
     background-color: #1b1b1b;
     transform: translateY(-88%);
-    transition: transform 0.25s ease-in-out; }
+    transition: transform 0.3s; }
 
 .addcodeform {
   padding: 1rem;
@@ -207,7 +218,8 @@ input[type="radio"] {
     width: 20%;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    position: relative; }
     .addcodeform__element:first-of-type {
       flex-direction: column; }
     .addcodeform__element__title {
@@ -219,11 +231,13 @@ input[type="radio"] {
       padding: 0.5rem;
       font-size: 1.5rem;
       font-weight: 700;
-      text-align: center; }
+      text-align: center;
+      position: relative; }
     .addcodeform__element:not(:last-child) {
       border-right: 1px solid #1b1b1b; }
   .addcodeform__inputcode {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    position: relative; }
     .addcodeform__inputcode--label {
       width: 90%;
       font: inherit;
@@ -231,17 +245,31 @@ input[type="radio"] {
       font-size: 2.5rem;
       text-align: center;
       border: 1px solid #1b1b1b;
-      outline: none; }
-      .addcodeform__inputcode--label:active, .addcodeform__inputcode--label:hover, .addcodeform__inputcode--labelfocus {
-        border: 2px solid #1b1b1b;
-        outline: none;
+      outline: none;
+      margin-bottom: 1rem; }
+      .addcodeform__inputcode--label:active, .addcodeform__inputcode--label:hover, .addcodeform__inputcode--label:focus {
+        outline: 2px solid #1b1b1b;
         background-color: #fff; }
+      .addcodeform__inputcode--label--smalltext {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0; }
+      .addcodeform__inputcode--label:focus + .addcodeform__inputcode--label--smalltext {
+        position: absolute;
+        top: 75%;
+        left: 57%;
+        color: #1b1b1b;
+        font-size: 1rem;
+        font-weight: 100;
+        visibility: visible;
+        opacity: 1; }
   .addcodeform__codetype {
     margin-top: 1rem;
     font-size: 2rem; }
     .addcodeform__codetype--radio {
       display: block;
-      padding: 0.6rem; }
+      padding: 0.6rem;
+      cursor: pointer; }
       .addcodeform__codetype--radio:hover {
         background-color: #1b1b1b;
         color: #fff; }
@@ -255,7 +283,8 @@ input[type="radio"] {
     font-size: 2rem; }
     .addcodeform__plantype--radio {
       display: block;
-      padding: 0.6rem; }
+      padding: 0.6rem;
+      cursor: pointer; }
       .addcodeform__plantype--radio:hover {
         background-color: #1b1b1b;
         color: #fff; }
@@ -309,6 +338,79 @@ input[type="radio"] {
         color: #fff;
         padding: 1.5rem;
         font-weight: 900; }
+  .addcodeform__submit {
+    align-self: center;
+    font-size: 2.2rem;
+    font-weight: 900; }
+  .addcodeform__calculator {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .addcodeform__calculator__title {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+    .addcodeform__calculator__text {
+      font-size: 3rem;
+      font-weight: 900;
+      text-decoration: underline;
+      background-color: #1b1b1b;
+      color: #fff;
+      padding: 1rem;
+      margin-bottom: 2rem; }
+    .addcodeform__calculator__code {
+      color: #1b1b1b;
+      background-color: #fff;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .addcodeform__calculator__code--small {
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem; }
+      .addcodeform__calculator__code--big {
+        padding: 1.2rem 4rem;
+        color: #fff;
+        background-color: #1b1b1b;
+        border: 4px dashed #fff; }
+  .addcodeform__calcandsubmit {
+    margin-top: 3rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .addcodeform__result {
+    min-height: 20rem;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .addcodeform__tooltip {
+    position: absolute;
+    top: 2%;
+    left: 90%; }
+
+.mycodes {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .mycodes__code {
+    font-size: 2rem; }
+    .mycodes__code:not(:last-child) {
+      margin-bottom: 1rem; }
 
 .header {
   padding: 0.5rem 1rem;
@@ -336,6 +438,33 @@ input[type="radio"] {
       font-style: italic;
       font-size: 1.4rem; }
 
+.footer {
+  border-top: 2px solid #1b1b1b;
+  padding: 0.5rem;
+  position: relative; }
+  .footer__container {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .footer__item {
+    font-size: 1.3rem;
+    font-weight: 100; }
+  .footer::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    z-index: -2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eee; }
+
+main {
+  min-height: 60rem; }
+
 .section-codegenerator {
   height: 8rem;
   display: flex;
@@ -344,7 +473,20 @@ input[type="radio"] {
 
 .section-codegenerator {
   height: 8rem;
-  margin: 3rem 0;
+  margin-bottom: 3rem;
+  position: relative;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center; }
+  .section-codegenerator::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    z-index: -1000;
+    background: radial-gradient(circle, #eee 90%, #fff 95%);
+    border-bottom: 2px solid #1b1b1b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }

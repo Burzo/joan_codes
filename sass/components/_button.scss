@@ -12,7 +12,7 @@
     -moz-appearance: none;
     overflow: hidden;
     transition: color .2s;
-    
+    min-width: 12rem; 
     
     &:visited {
         text-decoration: none;
@@ -38,7 +38,7 @@
         z-index: -1;
         background-color: $color-tertiary;
         transform: translateY(88%);
-        transition: transform 0.25s ease-in-out;
+        transition: transform 0.3s;
     }
 
     &::before {
@@ -51,6 +51,6 @@
         z-index: -1;
         background-color: $color-tertiary;
         transform: translateY(-88%);
-        transition: transform 0.25s ease-in-out;
+        transition: transform 0.3s;
     }
 }

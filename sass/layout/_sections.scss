@@ -1,3 +1,7 @@
+main {
+    min-height: 60rem;
+}
+
 .section-codegenerator {
     height: 8rem;
 
@@ -8,9 +12,22 @@
 
 .section-codegenerator {
     height: 8rem;
-    margin: 3rem 0;
+    margin-bottom: 3rem;
+    position: relative;
 
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        z-index: -1000;
+        background: radial-gradient(circle, $background-color-outside 90%, $background-color-inside 95%);
+        border-bottom: 2px solid $color-tertiary;
+
+        @include moveToCenter;
+    }
 }

@@ -10,6 +10,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         
         &:first-of-type {
             flex-direction: column;
@@ -27,6 +28,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             text-align: center;
+            position: relative;
         }
 
         &:not(:last-child) {
@@ -36,6 +38,7 @@
 
     &__inputcode {
         margin-top: 1rem;
+        position: relative;
 
         &--label {
             width: 90%;
@@ -45,11 +48,29 @@
             text-align: center;
             border: 1px solid $color-tertiary;
             outline: none;
+            margin-bottom: 1rem;
 
-            &:active, &:hover, &focus {
-                border: 2px solid $color-tertiary;
-                outline: none;
+            &:active, &:hover, &:focus {
+                outline: 2px solid $color-tertiary;
                 background-color: $color-primary;
+            }
+
+            &--smalltext {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+            }
+            
+            &:focus + &--smalltext {
+                position: absolute;
+                top: 75%;
+                left: 57%;
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 100;
+
+                visibility: visible;
+                opacity: 1;
             }
         }
     }
@@ -61,7 +82,7 @@
         &--radio {
             display: block;
             padding: 0.6rem;
-
+            cursor: pointer;
             &:hover {
                 background-color: $color-tertiary;
                 color: $color-primary;
@@ -83,7 +104,7 @@
         &--radio {
             display: block;
             padding: 0.6rem;
-
+            cursor: pointer;
             &:hover {
                 background-color: $color-tertiary;
                 color: $color-primary;
@@ -163,4 +184,95 @@
             }
         }
     }
-} 
+
+    &__submit {
+        align-self: center;
+        font-size: 2.2rem;
+        font-weight: 900;
+    }
+
+    &__calculator {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        
+        &__title {
+            margin-top: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__text {
+            font-size: 3rem;
+            font-weight: 900;
+            text-decoration: underline;
+            background-color: $color-tertiary;
+            color: $color-primary;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            // &--empty {
+            //     font-size: 2rem;
+            //     font-weight: 100;
+            // }
+        }
+
+        &__code {
+            color: $default-font-color;
+            background-color: $color-primary;
+            margin-bottom: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &--small {
+                text-transform: uppercase;
+                font-size: 1.3rem;
+                margin-bottom: 0.5rem;
+            }
+
+            &--big {
+                padding: 1.2rem 4rem;
+                color: $color-primary;
+                background-color: $color-tertiary;
+                border: 4px dashed $color-primary;
+            }
+        }
+    }
+
+    &__calcandsubmit {
+        margin-top: 3rem;
+        flex:1;    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__result {
+        min-height: 20rem;
+        position: relative;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__tooltip {
+        position: absolute;
+        top: 2%;
+        left: 90%;
+    }
+}

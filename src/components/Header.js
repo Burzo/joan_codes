@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 
 class Header extends React.Component {
 
@@ -15,13 +16,13 @@ class Header extends React.Component {
                 <nav className="navigation">
                     <ul className="navigation__list">
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="/"><span>Link</span></a>
+                            <NavLink exact to="/" className="navigation__item--link" activeClassName="navigation__item--link--selected"><span>Home</span></NavLink>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="/"><span>Link</span></a>
+                        <NavLink exact to="/mycodes" className="navigation__item--link" activeClassName="navigation__item--link--selected"><span>My Codes</span></NavLink>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__item--link" href="/"><span>Link</span></a>
+                        <NavLink exact to="/w" className="navigation__item--link" activeClassName="navigation__item--link--selected"><span>Link</span></NavLink>
                         </li>
                     </ul>
                 </nav>

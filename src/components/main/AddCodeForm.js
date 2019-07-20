@@ -1,13 +1,14 @@
 import React from "react"
 import Tooltip from "../helpers/Tooltip"
 import AddCodeFormCalculator from "./AddCodeFormCalculator"
+import sid from "shortid"
 
 class AddCodeForm extends React.Component {
     constructor() {
         super();
 
         this.state = {
-			newcodeInput: "",
+            newcodeInput: "",
 			suborpromo: "",
             selectValue: "",
             isEURorUSD: "eur",
@@ -23,6 +24,9 @@ class AddCodeForm extends React.Component {
                 this.setState({newcodeInput: e.target.value})       
                 break;
             case "numberOfDevices":
+                if (parseInt(e.target.value) > 100) {
+                    break;
+                }
                 this.setState({numberOfDevices: e.target.value})
                 break;
             default:
@@ -30,9 +34,31 @@ class AddCodeForm extends React.Component {
         }
     } 
 
-    selectChanged = (e) => {
-        this.setState({selectValue: e.target.value})
-	}
+    formSubmit = (e) => {
+        e.preventDefault()
+        if (this.state.newcodeInput.length < 4) {
+            return
+        }
+        console.log("Form submitted")
+
+        let data = localStorage.getItem("codes")
+        data = JSON.parse(data) || {codes: []}
+        data.codes.push(this.state)
+        data = JSON.stringify(data)
+        localStorage.setItem("codes", data)
+
+
+
+        this.setState({
+            newcodeInput: "",
+			suborpromo: "",
+            selectValue: "",
+            isEURorUSD: "eur",
+            numOfMonths: "",
+            stanorprem: "",
+            numberOfDevices: "",
+        })
+    }
 	
 	radioChanged = (e) => {
         switch (e.target.name) {
@@ -75,16 +101,20 @@ class AddCodeForm extends React.Component {
                         <label className="addcodeform__element__label" htmlFor="newCode">
                             Enter code here:
                             <div className="addcodeform__inputcode">
-                                <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="newCode" value={this.state.newcodeInput}/>
+                                <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="newCode" value={this.state.newcodeInput} required/>
+                                <span className="addcodeform__inputcode--label--smalltext">Min 4 characters</span>
                             </div>
                         </label>
                         <label className="addcodeform__element__label" htmlFor="numberOfDevices">
                             Number of devices:
                             <div className="addcodeform__inputcode">
-                                <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="numberOfDevices" value={this.state.numberOfDevices} type="number" />
+                                <input className="addcodeform__inputcode--label" onChange={this.inputChanged} name="numberOfDevices" value={this.state.numberOfDevices} type="number" required />
+                                <span className="addcodeform__inputcode--label--smalltext">Max 100 devices</span>
                             </div>
                         </label>
-                        {/* <Tooltip>You can enter your own code here if you wish. Hopefully, it doesn't exists yet. Or just create a random one.</Tooltip> */}
+                        <span className="addcodeform__tooltip">
+                            <Tooltip>You can enter your own code here if you wish. Hopefully, it doesn't exists yet. Or just create a random one.</Tooltip>
+                        </span>
                     </div>
                     <div className="addcodeform__element">
                         <div className="addcodeform__element__label" htmlFor="suborpromo">
@@ -95,6 +125,9 @@ class AddCodeForm extends React.Component {
                                 </div>
                             </div>    
                         </div>
+                        <span className="addcodeform__tooltip">
+                            <Tooltip>For how many month does the customer want to subscribe.</Tooltip>
+                        </span>
                     </div>
                     <div className="addcodeform__element">
                         <label className="addcodeform__element__label" htmlFor="suborpromo">
@@ -110,7 +143,9 @@ class AddCodeForm extends React.Component {
 								</label>
 							</div>
                         </label>
-                        {/* <Tooltip>Choose which type of code this is.<br/>Choose PROMO only if the customer didn't pay for it.</Tooltip> */}
+                        <span className="addcodeform__tooltip">
+                            <Tooltip>Choose which type of code this is.<br/>Choose PROMO only if the customer didn't pay for it.</Tooltip>
+                        </span>
                     </div>
                     <div className="addcodeform__element">
                         <label className="addcodeform__element__label" htmlFor="stanorprem">
@@ -126,6 +161,9 @@ class AddCodeForm extends React.Component {
                                 </label>
                             </div>
                         </label>
+                        <span className="addcodeform__tooltip">
+                            <Tooltip>Which kind of plan does the customer want.</Tooltip>
+                        </span>
                     </div>
                     <div className="addcodeform__element">
 						<div className="addcodeform__element__label">
@@ -144,7 +182,9 @@ class AddCodeForm extends React.Component {
                             </div>
 						</div>
                     </div>
-                    <AddCodeFormCalculator data={this.state}/>
+                    <div className="addcodeform__calcandsubmit">
+                        <AddCodeFormCalculator data={this.state}/>
+                    </div>
                 </form>
                                             {/* <label>
                                 <span>Months:</span>

@@ -33,7 +33,6 @@
 
             &:visited {
                 text-decoration: none;
-                color: $default-font-color;
             }
 
             &:active,
@@ -42,6 +41,11 @@
                 span {
                     color: $color-white;
                 }
+            }
+
+            &--selected {
+                background-color: $color-tertiary;
+                color: $color-primary;
             }
         }
     }

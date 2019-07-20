@@ -1,0 +1,30 @@
+.footer {
+    border-top: 2px solid $color-tertiary;
+    padding: 0.5rem;
+    position: relative;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        font-size: 1.3rem;
+        font-weight: 100;
+
+    }
+
+    &::after {
+        content: "";
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        z-index: -2;
+
+        @include moveToCenter;
+
+        background-color: $background-color-outside;
+    }
+}

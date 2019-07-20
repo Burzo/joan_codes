@@ -19,7 +19,7 @@ body {
 }
 
 ::selection {
-    background-color:  $color-tertiary;
+    background-color:  $color-secondary;
     color: $color-primary;
 }
 
@@ -27,4 +27,10 @@ input[type="radio"] {
     visibility: hidden;
     opacity: 0;
     position: absolute;
+}
+
+a {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: none;
 }

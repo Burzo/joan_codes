@@ -1,0 +1,16 @@
+.mycodes {
+    margin-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__code {
+        font-size: 2rem;
+        
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+}
