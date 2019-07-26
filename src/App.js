@@ -16,6 +16,7 @@ class App extends React.Component {
 						<Route path="/" component={Main} exact />
 						<Route path="/mycodes" component={MyCodes} exact />
 						<Route component={Main} exact />
+						{/* useless comment */}
 					</Switch>
 				</main>
 				<Footer />
