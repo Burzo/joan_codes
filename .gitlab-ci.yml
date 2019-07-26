@@ -3,6 +3,8 @@ stages:
     
 job1:
     stage: build
+    tags:
+        - joan_codes_work
     script:
         - cd /home/burzo/dockerstuff
         - docker-compose up
