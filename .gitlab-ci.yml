@@ -1,0 +1,8 @@
+stages:
+    - build
+    
+job1:
+    stage: build
+    script:
+        - cd /home/burzo/dockerstuff
+        - docker-compose up
